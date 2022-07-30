@@ -19,8 +19,3 @@ setup.bat
 run.bat
 setup.sh
 run.sh
-mobsf/downloads
-mobsf/uploads
-mobsf/debug.log
-mobsf/secret
-mobsf/StaticAnalyzer/test_files/

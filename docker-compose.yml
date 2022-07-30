@@ -1,39 +1,30 @@
 version: '3.8'
 services:
-  postgres:
-    image: "postgres:latest"
+  mongodb:
+    image: "mongodb:latest"
     restart: always
     volumes:
-      - $HOME/MobSF/postgresql_data:/var/lib/postgresql
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mobsf
+      - $HOME/Blakc_BackEnd
     ports:
-      - "5432:5432"
+      - "27017:27017"
     networks:
-        - mobsf
+        - Blakc_BackEnd
 
-  mobsf:
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mobsf
-      - POSTGRES_HOST=postgres
+  Blakc_BackEnd:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-       - POSTGRES=True
+       - mongodb=True
     volumes:
-      - $HOME/MobSF/mobsf_data:/home/mobsf/.MobSF
+      - $HOME/Blakc_BackEnd
     ports:
      - "8000:8000"
     networks:
-      - mobsf
+      - Blakc_BackEnd
     depends_on:
-      - postgres
+      - mongodb
     links:
-      - "postgres"
+      - "mongodb"
 networks:
-  mobsf:
+  Blakc_BackEnd:

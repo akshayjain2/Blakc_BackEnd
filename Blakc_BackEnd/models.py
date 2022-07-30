@@ -12,4 +12,7 @@ class TeamInfo(models.Model):
     TeamAdmin = models.TextField()
 
 class TeamMember(models.Model):
-
+    _id = models.ObjectIdField(primary_key=True)
+    MembersName = models.TextField()
+    TeanName = models.TextField()
+    AddBy = models.TextField()
