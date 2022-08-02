@@ -15,18 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import views
 from django.conf.urls import include
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    path('createTeam',views.createTeam),
-    path('AddTeamMember',views.addMember),
-    path('viewAccessofTeammember',views.viewAcess),
-    path('DeleteTeam',views.deleteTeam),
-    path('ModifyTeamMember',views.modifyteammember),
-    path('removeTeamMember',views.removeTeamMember),
+
     path(r'', include('ChatApplication.urls')),
     path(r'', include('UserInfo.urls')),
+    path(r'', include('Team.urls')),
 
 ]
