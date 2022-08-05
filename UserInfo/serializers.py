@@ -1,7 +1,11 @@
 from rest_framework import serializers
 from .models import User
 
-
+# class TeamSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Team
+#         fields = ('DepartmentId',
+#                   'DepartmentName')
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User

@@ -8,6 +8,7 @@ from rest_framework.exceptions import AuthenticationFailed
 from .serializers import UserSerializer
 from .models import User
 import jwt, datetime
+from django.http.response import JsonResponse
 # Create your views here.
 def createUser(request):
     name = request.Post.get("UserInfo")
@@ -39,8 +40,10 @@ def login(request):
 def getTeams(request):
     name = request.Post.get("UserInfo")
     UserTeamInfo.objects.filter(Name = name)
-    msg = {'status': 'success', 'msg': UserTeamInfo.AssociateTeam}
-    return HttpResponse(json.dumps(msg), content_type="application/json")
+    data = {"TeamId": "TeamName", "Teamname":"IIN"}
+    return JsonResponse(data, safe=False)
+    # msg = {'status': 'success', 'msg': UserTeamInfo.AssociateTeam}
+    # return HttpResponse(json.dumps(msg), content_type="application/json")
 
 def userlist(request):
     userlist = list(UserInfo.object.all().select('Name'))

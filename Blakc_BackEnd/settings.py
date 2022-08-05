@@ -142,3 +142,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+MINIO_SERVER = 'your_minio_server_address'
+MINIO_ACCESSKEY = 'your_minio_server_access_key'
+MINIO_SECRET = 'your_minio_server_secret_key'
+MINIO_BUCKET = 'my_bucket'
+MINIO_SECURE = True
+DEFAULT_FILE_STORAGE = 'django_minio.storage.MinioStorage'
